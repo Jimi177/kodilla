@@ -6,27 +6,23 @@ values = []
 how_many_numbers = 0
 math_string = ""
 
-def calculation_type_define(context):
+def get_calculation_type(context):
     while True:
         try:
             number = int(input(context))
-            if number > 4:
-                print("Brak typu działania, spróbuj ponownie: ")
-                continue
-            else:
+            if number in [1, 2, 3, 4]:
                 return number
-                break
+            raise ValueError
         except ValueError:
             print("Wprowadź odpowiedni klucz działania 1-4")
 
-def how_many_values(context):
+def how_many_values(calculation_type, context):
     while True:
-        if calculation_type == 1 or calculation_type == 3:
+        if calculation_type in [1,3]:
             try:
                 number = int(input(context))
                 if number > 1:
                     return number
-                    break
                 else:
                     print("Zbyt mało zmiennych, wprowadź przynajmniej 2")
             except ValueError:
@@ -35,7 +31,6 @@ def how_many_values(context):
             print("Dla odejmowania oraz dzielenia podaj 2 wartości")
             number =2
             return number
-            break
 
 def calculation_construction(numbers):
     temp_values = []
