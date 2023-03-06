@@ -22,12 +22,15 @@ def calculation_type_define(context):
 def how_many_values(context):
     while True:
         if calculation_type == 1 or calculation_type == 3:
-            number = int(input(context))
-            if number > 1:
-                return number
-                break
-            else:
-                print("Zbyt mało zmiennych, wprowadź przynajmniej 2")
+            try:
+                number = int(input(context))
+                if number > 1:
+                    return number
+                    break
+                else:
+                    print("Zbyt mało zmiennych, wprowadź przynajmniej 2")
+            except ValueError:
+                print("Podaj poprawną wartość")
         else:
             print("Dla odejmowania oraz dzielenia podaj 2 wartości")
             number =2
