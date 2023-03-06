@@ -23,10 +23,10 @@ except ValueError:
 for number in values:
     math_string += str(number) + " " + calculation_type_dict[calculation_type] +" "
 
-
-clean_math_string = str(eval(math_string[:-2]))
-
-print("Wynik działania: "+clean_math_string)
+clean_math_string = str(math_string[:-2])
+result = str(eval(clean_math_string))
+logging.debug("Wykonuję działanie: " + clean_math_string)
+print("Wynik działania: "+result)
 
 
 
