@@ -68,7 +68,7 @@ def show_revenue():
     print("Revenue: "+ str(round(revenue,2)))
 
 def export_items_to_csv():
-
+    print("test")
 
 def menu():
     command = str(input("What would you like to do?: ")).lower()
@@ -91,5 +91,5 @@ def menu():
         print("Dostępne komendy: get, add, sell, get sold, costs, income, revenue")
 
 
-while True:
-    menu()
+
+
