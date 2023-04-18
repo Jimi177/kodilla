@@ -2,22 +2,7 @@
 from faker import Faker
 f = Faker()
 
-class Card:
-    def __init__(self, name,last_name, company_name,position,email):
-        self.name = name
-        self.last_name = last_name
-        self.company_name = company_name
-        self.position = position
-        self.email = email
-
-    def contact(self):
-        print("Please contact with: ",self.name,self.last_name,self.email)
-
-    def label_length(self):
-        label_length = len(self.name,self.last_name +1)
-        print("Data lenght: ",label_length)
-
-class BaseContact(Card):
+class BaseContact():
     def __init__(self, name, last_name, phone_number,email):
         self.name = name
         self.last_name = last_name
@@ -25,16 +10,24 @@ class BaseContact(Card):
         self.email = email
 
     def contact(self):
-        print("Select number: ",self.phone_number,"to",self.name,self.last_name)
+        print(f"Select number: ",{self.phone_number},"to", {self.name}, {self.last_name})
 
-class BusinessContact(Card):
+    @property
+    def label_length(self):
+        return self.message
+
+    def label_length(self):
+        label_length = len(self.name, self.last_name + 1)
+        message = ("Data lenght: ",label_length)
+
+class BusinessContact(BaseContact):
     def __init__(self, position, company_name, business_phone_number):
         self.position = position
         self.company_name = company_name
         self.business_phone_number = business_phone_number
 
     def contact(self):
-        print("Select number: ",self.business_phone_number,"to",self.name,self.last_name)
+        print(f"Select number: ", {self.business_phone_number},"to", {self.name}, {self.last_name})
 
 def menu():
     quantity = int(input("How mand cards do u want to generate: "))
