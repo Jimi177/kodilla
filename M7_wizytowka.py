@@ -8,17 +8,19 @@ class BaseContact():
         self.last_name = last_name
         self.phone_number = phone_number
         self.email = email
+        self._label_length = len(self.name) + len(self.surname)
+
 
     def contact(self):
-        print(f"Select number: ",{self.phone_number},"to", {self.name}, {self.last_name})
+        print(f"Select number: {self.phone_number} to  {self.name} {self.last_name}")
 
     @property
     def label_length(self):
-        return self.message
+        return self._label_length
 
-    def label_length(self):
-        label_length = len(self.name, self.last_name + 1)
-        message = ("Data lenght: ",label_length)
+    @label_length.setter
+    def label_length(self, value):
+        self._label_length = value
 
 class BusinessContact(BaseContact):
     def __init__(self, position, company_name, business_phone_number):
@@ -27,7 +29,7 @@ class BusinessContact(BaseContact):
         self.business_phone_number = business_phone_number
 
     def contact(self):
-        print(f"Select number: ", {self.business_phone_number},"to", {self.name}, {self.last_name})
+        print(f"Select number: {self.business_phone_number} to  {self.name} {self.last_name}")
 
 def menu():
     quantity = int(input("How mand cards do u want to generate: "))
