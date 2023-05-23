@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Informacje kontaktowe</h2>
+    <p>
+	Telefon: 515 551 515 <br>
+	Email: szymon@gmail.com
+	</p>
+
+    <h3>Formularz kontaktowy</h3>
+    <form action="/mypage/contact" method="post">
+        <input type="text" name="name" placeholder="Imię i nazwisko" required><br>
+        <input type="email" name="email" placeholder="Adres e-mail" required><br>
+        <textarea name="message" placeholder="Wiadomość" required></textarea><br>
+        <input type="submit" value="Wyślij">
+    </form>
+
+    {% if success %}
+        <p>Wiadomość została wysłana.</p>
+    {% endif %}
+{% endblock %}
