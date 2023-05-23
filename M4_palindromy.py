@@ -16,4 +16,4 @@ def palindrom_check(word):
         return False
 
 
-print(palindrom_check("test"))
+print(palindrom_check("potop"))
